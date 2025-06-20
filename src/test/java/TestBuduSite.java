@@ -13,7 +13,7 @@ public class TestBuduSite {
     @BeforeClass
     public static void setUp() {
         // Укажите путь к вашему chrome драйверу
-        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver");
         driver = new ChromeDriver();
     }
 

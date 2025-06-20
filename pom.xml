@@ -17,8 +17,8 @@
         <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.10.0</version>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.17.0</version>
         </dependency>
 
         <!-- JUnit -->
