@@ -18,7 +18,7 @@ public class myTest {
 
         try {
             // Открываем страницу
-            driver.get("http://budu.ru");
+            driver.get("https://budu.ru");
 
             // Выполняем дальнейшие действия с драйвером
         } finally {
