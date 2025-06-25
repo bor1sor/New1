@@ -19,18 +19,17 @@ public class SimpleUiTest {
         // Настройка неявного ожидания (опционально, но рекомендуется)
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        // Открытие главной страницы budu.ru
-        driver.get("https://budu.ru");
+        driver.get("https://rostov.rt.ru/");
 
         // Создание скриншота
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
         // Сохранение скриншота
-        FileUtils.copyFile(screenshotFile, new File("budu_screenshot.png"));
+        FileUtils.copyFile(screenshotFile, new File("rostov_screenshot.png"));
 
         // Закрытие браузера
         driver.quit();
 
-        System.out.println("Тест успешно завершен. Скриншот сохранен как budu_screenshot.png");
+        System.out.println("Тест успешно завершен. Скриншот сохранен как rostov_screenshot.png");
     }
 }
