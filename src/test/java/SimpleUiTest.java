@@ -1,53 +1,36 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class SimpleUiTest {
 
-    private WebDriver driver;
+    public static void main(String[] args) throws IOException {
+        // Установка пути к драйверу Chrome (замените на свой)
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver");
 
-    @BeforeEach
-    public void setUp() {
-        // Установка пути к драйверу Chrome (скачайте драйвер, соответствующий вашей версии Chrome)
-        System.setProperty("webdriver.chrome.driver", "путь/к/chromedriver");
+        // Создание экземпляра ChromeDriver
+        WebDriver driver = new ChromeDriver();
 
-        // Дополнительные настройки драйвера (например, режим без отображения окна)
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Запускать в фоновом режиме
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Неявное ожидание
-    }
+        // Настройка неявного ожидания (опционально, но рекомендуется)
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    @Test
-    public void testGoogleSearch() {
-        // Открыть страницу
-        driver.get("https://www.google.com");
+        // Открытие главной страницы budu.ru
+        driver.get("https://budu.ru");
 
-        // Найти элемент поиска
-        WebElement searchBox = driver.findElement(By.name("q"));
-        // Ввести текст
-        searchBox.sendKeys("Selenium testing");
-        // Отправить запрос
-        searchBox.submit();
+        // Создание скриншота
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-        // Проверить заголовок страницы
-        assertEquals("Selenium testing - Поиск в Google", driver.getTitle());
-    }
+        // Сохранение скриншота
+        FileUtils.copyFile(screenshotFile, new File("budu_screenshot.png"));
 
-    @AfterEach
-    public void tearDown() {
-        // Закрыть браузер
-        if (driver != null) {
-            driver.quit();
-        }
+        // Закрытие браузера
+        driver.quit();
+
+        System.out.println("Тест успешно завершен. Скриншот сохранен как budu_screenshot.png");
     }
 }
