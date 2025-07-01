@@ -13,7 +13,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.21.0</selenium.version>
-        <junit-jupiter.version>5.11.0-M1</junit-jupiter.version>
         <webdrivermanager.version>5.8.0</webdrivermanager.version>
     </properties>
 

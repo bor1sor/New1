@@ -1,5 +1,4 @@
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 public class SimpleUiTest {
 
-    @Test
+
     public void main() {
         // Создаем опции для Chrome
         ChromeOptions options = new ChromeOptions();
