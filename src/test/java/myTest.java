@@ -30,7 +30,7 @@ public class myTest {
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
             try {
-                FileUtils.copyFile(screenshotFile, new File("page1_screenshot.png"));
+                FileUtils.copyFile(screenshotFile, new File("page1_screenshot111.png"));
             } catch (IOException e) {
                 System.err.println("Ошибка при создании скриншота: " + e.getMessage());
             }
