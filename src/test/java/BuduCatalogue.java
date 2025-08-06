@@ -15,7 +15,7 @@ import java.time.Duration;
 // Добавляем аннотацию для управления жизненным циклом экземпляров
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
-public class BuduAuth {
+public class BuduCatalogue {
 
     private final Logger logger = LogManager.getLogger(BuduAuth.class);
     WebDriver driver;
@@ -45,14 +45,12 @@ public class BuduAuth {
     public void openBuduRuAndLogin() {
         driver.get("https://budu.ru");
 
-        WebElement button = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[2]/div/div[2]/div[3]/span"));
-        button.click();
-        WebElement phone = driver.findElement(By.xpath("//*[@id=\"floatingInput\"]"));
-        phone.sendKeys("(901)766-45-11");
-        WebElement authButton = driver.findElement(By.cssSelector("#redesign-layout > main > div > div > div > div > div > div:nth-child(2) > button > span > span"));
-        authButton.click();
-        WebElement codeField = driver.findElement(By.id("//*[@id=\"floatingInput\"]"));
-        codeField.sendKeys("0000");
+        WebElement catalogue = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[1]/div"));
+        catalogue.click();
+        WebElement diagnostics = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/div/div[1]/div/div/button[2]/span/span"));
+        diagnostics.click();
+        WebElement showAll = driver.findElement(By.xpath("//*[@id=\"mainLayout\"]/main/div/div/div/div/div/div/div[2]/div[2]/div/div[1]/button/span/span"));
+        showAll.click();
         driver.quit();
 
     }
