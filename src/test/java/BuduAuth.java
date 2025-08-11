@@ -45,22 +45,16 @@ public class BuduAuth {
     public void openBuduRuAndLogin() {
         driver.get("https://budu.ru");
 
-        WebElement button = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[2]/div/div[2]/div[3]/span"));
-        button.click();
-        WebElement phone = driver.findElement(By.xpath("//*[@id=\"floatingInput\"]"));
-        phone.sendKeys("(901)766-45-11");
-        WebElement authButton = driver.findElement(By.cssSelector("#redesign-layout > main > div > div > div > div > div > div:nth-child(2) > button > span > span"));
-        authButton.click();
-        WebElement codeField = driver.findElement(By.id("//*[@id=\"floatingInput\"]"));
-        codeField.sendKeys("0000");
-        driver.quit();
-
+        WebElement button = driver.findElement(By.cssSelector(
+                "#header > div > div.header-desktop__search > div > div.header-desktop__actions > div.s-profile-navigation.header-desktop__actions-item > span"
+        ));
+        String backgroundColor = button.getCssValue("background-color");
+        logger.info("Background color of the element: {}", backgroundColor);
     }
 
     @Test
     @Order(2)
     public void fillPersonalData() {
-        driver.quit(); // Реализовать заполнение личных данных здесь
+        // Реализовать заполнение личных данных здесь
     }
-
 }
