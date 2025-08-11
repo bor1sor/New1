@@ -53,10 +53,4 @@ public class BuduCatalogue {
 
     }
 
-    @Test
-    @Order(2)
-    public void fillPersonalData() {
-        driver.quit(); // Реализовать заполнение личных данных здесь
-    }
-
 }
