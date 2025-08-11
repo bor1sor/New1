@@ -49,8 +49,6 @@ public class BuduCatalogue {
         catalogue.click();
         WebElement diagnostics = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/div/div[1]/div/div/button[2]/span/span"));
         diagnostics.click();
-        WebElement showAll = driver.findElement(By.xpath("//*[@id=\"mainLayout\"]/main/div/div/div/div/div/div/div[2]/div[2]/div/div[1]/button/span/span"));
-        showAll.click();
         driver.quit();
 
     }
