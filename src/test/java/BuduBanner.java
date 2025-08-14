@@ -10,14 +10,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.awt.*;
 import java.time.Duration;
 
 // Добавляем аннотацию для управления жизненным циклом экземпляров
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
-public class BuduCatalogue {
+public class BuduBanner {
 
-    private final Logger logger = LogManager.getLogger(BuduAuth.class);
+    private final Logger logger = LogManager.getLogger(BuduBanner.class);
     WebDriver driver;
 
     @BeforeAll
@@ -47,10 +48,11 @@ public class BuduCatalogue {
 
         WebElement catalogue = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[1]/div"));
         catalogue.click();
-        Thread.sleep(3000);
-        WebElement diagnostics = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/div/div[1]/div/div/button[2]/span/span"));
-        diagnostics.click();
-        Thread.sleep(3000);
+        String expectedTitle  = "Диагностика";
+        Label titleElement = null;
+        String actualTitle = titleElement.getText(); // Доступно
+        Assertions.assertEquals(expectedTitle, actualTitle, "Подраздел 'Диагностика' не отображается..");
+        Thread.sleep(1500);
         driver.quit();
 
     }

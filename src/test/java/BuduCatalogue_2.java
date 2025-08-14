@@ -5,9 +5,9 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class BuduTest {
+public class BuduCatalogue_2 {
 
-    private final static Logger logger = LogManager.getLogger(BuduTest.class);
+    private final static Logger logger = LogManager.getLogger(BuduCatalogue_2.class);
     private WebDriver driver; // Переменная перемещается сюда, теперь доступна всем методам
 
     @BeforeAll
