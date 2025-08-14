@@ -59,7 +59,7 @@ public class BuduCatalogue {
         WebElement getCode = driver.findElement(By.xpath("//*[@id=\"redesign-layout\"]/main/div/div/div/div/div/div[2]/button"));
         Thread.sleep(5000);
         getCode.click();
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         driver.quit();
     }
 
