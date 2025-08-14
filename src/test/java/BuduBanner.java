@@ -47,6 +47,7 @@ public class BuduBanner {
         driver.get("https://budu.ru");
 
         WebElement catalogue = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[1]/div"));
+        Thread.sleep(7500);
         catalogue.click();
         String expectedTitle  = "Диагностика";
         Label titleElement = null;

@@ -4,13 +4,14 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.time.Duration;
+import java.time.Instant;
 
 // Добавляем аннотацию для управления жизненным циклом экземпляров
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -19,6 +20,8 @@ public class BuduCatalogue {
 
     private final Logger logger = LogManager.getLogger(BuduAuth.class);
     WebDriver driver;
+    private Alert inputPhone;
+    private Instant wait;
 
     @BeforeAll
     public void setup() {
@@ -45,14 +48,19 @@ public class BuduCatalogue {
     public void openBuduRuAndLogin() throws InterruptedException {
         driver.get("https://budu.ru");
 
-        WebElement catalogue = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[1]/div"));
-        catalogue.click();
-        Thread.sleep(3000);
-        WebElement diagnostics = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/div/div[1]/div/div/button[2]/span/span"));
-        diagnostics.click();
-        Thread.sleep(3000);
+        WebElement authButton = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[2]/div/div[2]/div[3]/span"));
+        Thread.sleep(4000);
+        authButton.click();
+        Thread.sleep(5000);
+        WebElement phoneInput = driver.findElement(By.xpath("//*[@id=\"floatingInput\"]"));
+        Thread.sleep(5000);
+        phoneInput.sendKeys("+79017664511");
+        Thread.sleep(5000);
+        WebElement getCode = driver.findElement(By.xpath("//*[@id=\"redesign-layout\"]/main/div/div/div/div/div/div[2]/button"));
+        Thread.sleep(5000);
+        getCode.click();
+        Thread.sleep(5000);
         driver.quit();
-
     }
 
 }
