@@ -69,5 +69,4 @@ public class BuduCatalogue {
         Assertions.assertEquals(expectedError, actualErrorText, "Ошибка должна содержать текст \"Неверный код из смс\"");
         driver.quit();
     }
-
 }
