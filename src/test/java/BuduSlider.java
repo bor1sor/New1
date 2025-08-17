@@ -46,7 +46,7 @@ public class BuduSlider {
         driver.get("https://budu.ru");
 
         WebElement sliderButton = driver.findElement(By.cssSelector("#\\32 3 > div > div.slider-base__button-next-image-carousel.slider-base__button--carousel-slider.slider-base__button.slider-base__button-next"));
-        Thread.sleep(5500);
+        Thread.sleep(3500);
         sliderButton.click();
         driver.quit();
 
