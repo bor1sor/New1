@@ -10,15 +10,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.awt.*;
 import java.time.Duration;
 
 // Добавляем аннотацию для управления жизненным циклом экземпляров
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
-public class BuduBanner {
+public class BuduSlider {
 
-    private final Logger logger = LogManager.getLogger(BuduBanner.class);
+    private final Logger logger = LogManager.getLogger(BuduSlider.class);
     WebDriver driver;
 
     @BeforeAll
@@ -46,14 +45,9 @@ public class BuduBanner {
     public void openBuduRuAndLogin() throws InterruptedException {
         driver.get("https://budu.ru");
 
-        WebElement catalogue = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[1]/div"));
-        Thread.sleep(7500);
-        catalogue.click();
-        String expectedTitle  = "Диагностика";
-        Label titleElement = null;
-        String actualTitle = titleElement.getText(); // Доступно
-        Assertions.assertEquals(expectedTitle, actualTitle, "Подраздел 'Диагностика' не отображается..");
-        Thread.sleep(1500);
+        WebElement sliderButton = driver.findElement(By.cssSelector("#\\32 3 > div > div.slider-base__button-next-image-carousel.slider-base__button--carousel-slider.slider-base__button.slider-base__button-next"));
+        Thread.sleep(5500);
+        sliderButton.click();
         driver.quit();
 
     }

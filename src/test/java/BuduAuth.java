@@ -4,13 +4,14 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.time.Duration;
+import java.time.Instant;
 
 // Добавляем аннотацию для управления жизненным циклом экземпляров
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -19,6 +20,8 @@ public class BuduAuth {
 
     private final Logger logger = LogManager.getLogger(BuduAuth.class);
     WebDriver driver;
+    private Alert inputPhone;
+    private Instant wait;
 
     @BeforeAll
     public void setup() {
@@ -42,19 +45,28 @@ public class BuduAuth {
 
     @Test
     @Order(1)
-    public void openBuduRuAndLogin() {
+    public void openBuduRuAndLogin() throws InterruptedException {
         driver.get("https://budu.ru");
 
-        WebElement button = driver.findElement(By.cssSelector(
-                "#header > div > div.header-desktop__search > div > div.header-desktop__actions > div.s-profile-navigation.header-desktop__actions-item > span"
-        ));
-        String backgroundColor = button.getCssValue("background-color");
-        logger.info("Background color of the element: {}", backgroundColor);
-    }
-
-    @Test
-    @Order(2)
-    public void fillPersonalData() {
-        // Реализовать заполнение личных данных здесь
+        WebElement authButton = driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div/div[2]/div/div[2]/div[3]/span"));
+        Thread.sleep(3000);
+        authButton.click();
+        Thread.sleep(3000);
+        WebElement phoneInput = driver.findElement(By.xpath("//*[@id=\"floatingInput\"]"));
+        Thread.sleep(3000);
+        phoneInput.sendKeys("+9017664511");
+        Thread.sleep(3000);
+        WebElement getCode = driver.findElement(By.xpath("//*[@id=\"redesign-layout\"]/main/div/div/div/div/div/div[2]/button"));
+        Thread.sleep(3000);
+        getCode.click();
+        Thread.sleep(3000);
+        WebElement enterCode = driver.findElement(By.cssSelector("#floatingInput"));
+        enterCode.sendKeys("0000");
+        Thread.sleep(3000);
+        WebElement errorMessage = driver.findElement(By.xpath("//*[@id=\"redesign-layout\"]/main/div/div/div/div/div/div[1]/div[2]/div/p"));
+        String expectedError = "Неверный код из смс";
+        String actualErrorText = errorMessage.getText();
+        Assertions.assertEquals(expectedError, actualErrorText, "Ошибка должна содержать текст \"Неверный код из смс\"");
+        driver.quit();
     }
 }
