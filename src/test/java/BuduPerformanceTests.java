@@ -12,7 +12,7 @@ public class BuduPerformanceTests {
     }
 
     /**
-     * Метод для измерения времени выполнения одного запроса.
+     * Метод для измерения времени выполнения нескольких запросов.
      */
     private long measureExecutionTime(String endpoint) {
         long startTime = System.currentTimeMillis();
@@ -27,7 +27,7 @@ public class BuduPerformanceTests {
     @Test
     public void testMultipleEndpointsPerformance() {
         final String[] endpoints = {
-                "/api/v3/public/user/notifications",
+                "/api/v1/public/user/faq",
                 "/api/v1/public/user/info",
                 "/api/v3/public/site/catalog/search/structure",
                 "/api/v3/public/site/widget/home"};
