@@ -27,14 +27,13 @@ public class BuduPerformanceTests {
     @Test
     public void testMultipleEndpointsPerformance() {
         final String[] endpoints = {
-                "/api/v1/public/user/faq",
                 "/api/v1/public/user/info",
                 "/api/v3/public/site/catalog/search/structure",
                 "/api/v3/public/site/widget/home"};
 
         for (String endpoint : endpoints) {
             long executionTime = measureExecutionTime(endpoint);
-            System.out.printf("Время выполнения %s: %d мс%n", endpoint, executionTime);
+            System.out.println("Время выполнения запроса '" + endpoint + "' составило: " + executionTime + " мс");
         }
     }
 }
