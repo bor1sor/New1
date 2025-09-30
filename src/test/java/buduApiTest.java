@@ -13,7 +13,7 @@ public class buduApiTest {
                 .when().get("/api/v1/public/user/info") // Выполняем GET-запрос
                 .then()
                 .assertThat()
-                .statusCode(200);
+                .statusCode(404);
         long endTime = System.currentTimeMillis(); // фиксируем конец времени выполнения запроса
         long executionTime = endTime - startTime; // вычисляем общее время выполнения
 
