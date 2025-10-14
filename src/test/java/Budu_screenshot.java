@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriverService;
-
 import java.io.File;
 import java.io.IOException;
 
-public class SimpleUiTest {
+public class Budu_screenshot {
 
 
     public void main() {
@@ -26,14 +25,14 @@ public class SimpleUiTest {
 
         try {
             // Открываем страницу
-            driver.get("https://rostov.rt.ru/");
+            driver.get("https://budu.ru/");
 
-            Thread.sleep(5000);
+            Thread.sleep(4500);
 
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
             try {
-                FileUtils.copyFile(screenshotFile, new File("page_screenshot.png"));
+                FileUtils.copyFile(screenshotFile, new File("budu_screen_1.png"));
             } catch (IOException e) {
                 System.err.println("Ошибка при создании скриншота: " + e.getMessage());
             }

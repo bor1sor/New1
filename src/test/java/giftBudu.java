@@ -15,7 +15,7 @@ public class giftBudu {
     public void testSiteAccessibility() {
         int statusCode = get("/").statusCode(); // Получаем статус-код главного пути '/'
 
-        if (statusCode == 404) {
+        if (statusCode == 200) {
             System.out.println("Сайт доступен, статус-код: " + statusCode);
         } else {
             System.out.println("Ошибка доступа к сайту, статус-код: " + statusCode);
