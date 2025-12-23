@@ -8,7 +8,7 @@ public class BuduTimingStructure {
 
     @BeforeEach
     public void setup() {
-        RestAssured.baseURI = "https://dev05.shop.budu.ru/"; // устанавливаем базовую URI
+        RestAssured.baseURI = "https://rc1.dev.shop.budu.ru/"; // устанавливаем базовую URI
     }
 
     /**
@@ -26,7 +26,7 @@ public class BuduTimingStructure {
 
     @Test
     public void testMultipleEndpointsPerformance() {
-        final String[] endpoints = {"/api/v3/public/site/catalog/search/structure",};
+        final String[] endpoints = {"api/v1/public/seller/catalog/list",};
 
         for (String endpoint : endpoints) {
             long executionTime = measureExecutionTime(endpoint);
