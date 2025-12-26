@@ -25,7 +25,7 @@ public class Budu_screenshot {
 
         try {
             // Открываем страницу
-            driver.get("https://budu.ru/");
+            driver.get("https://preprod.shop.budu.ru/");
 
             Thread.sleep(3500);
 
