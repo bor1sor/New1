@@ -27,7 +27,7 @@ public class Budu_screenshot {
             // Открываем страницу
             driver.get("https://budu.ru/");
 
-            Thread.sleep(4500);
+            Thread.sleep(3500);
 
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
