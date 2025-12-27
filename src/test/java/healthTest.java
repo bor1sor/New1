@@ -21,4 +21,8 @@ public class healthTest {
                 .statusCode(200)              // Статус-код должен быть 200
                 .body(is("ok"));              // Тело должно содержать ровно "ok"
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 610547fcd4a961eefba2567d963b0a22568cc80b
