@@ -1,6 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,7 +25,7 @@ public class BuduCatalogue_2 {
         logger.trace("Открытие браузера - конец");
 
         logger.trace("Открытие сайта - начало");
-        driver.get("https://budu.ru");
+        driver.get("https://preprod.shop.budu.ru");
         logger.trace("Открытие сайта - конец");
     }
 
@@ -39,14 +40,14 @@ public class BuduCatalogue_2 {
 
     @Test
     public void firstTest() {
-        String expectedTitle = "budu.ru";
+        String expectedTitle = "preprod.shop.budu.ru";
         String actualTitle = driver.getTitle(); // Теперь доступно
         Assertions.assertEquals(expectedTitle, actualTitle, "Проверка заголовка страницы.");
     }
 
     @Test
     public void secondTest() {
-        String expectedTitle = "Каталог";
+        String expectedTitle = "budu.ru";
         String actualTitle = driver.getTitle(); // Доступно
         Assertions.assertEquals(expectedTitle, actualTitle, "Проверка альтернативного заголовка страницы.");
     }

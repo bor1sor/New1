@@ -7,7 +7,7 @@ public class buduApiTest {
 
     @Test
     public void testBuduStatus() {
-        RestAssured.baseURI = "https://budu.ru";
+        RestAssured.baseURI = "https://preprod.shop.budu.ru";
         long startTime = System.currentTimeMillis();
         given()
                 .when().get("/api/v1/public/user/info") // Выполняем GET-запрос
