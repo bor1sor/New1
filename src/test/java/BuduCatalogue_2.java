@@ -40,7 +40,7 @@ public class BuduCatalogue_2 {
 
     @Test
     public void firstTest() {
-        String expectedTitle = "preprod.shop.budu.ru";
+        String expectedTitle = "budu.ru";
         String actualTitle = driver.getTitle(); // Теперь доступно
         Assertions.assertEquals(expectedTitle, actualTitle, "Проверка заголовка страницы.");
     }
