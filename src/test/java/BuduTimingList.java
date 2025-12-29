@@ -2,9 +2,8 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
-public class BuduTimingStructure {
+public class BuduTimingList {
 
     @BeforeEach
     public void setup() {

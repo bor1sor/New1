@@ -43,7 +43,7 @@ public class BuduSlider {
     @Test
     @Order(1)
     public void openBuduRuAndLogin() throws InterruptedException {
-        driver.get("https://budu.ru");
+        driver.get("https://preprod.shop.budu.ru");
 
         WebElement sliderButton = driver.findElement(By.cssSelector("#\\32 3 > div > div.slider-base__button-next-image-carousel.slider-base__button--carousel-slider.slider-base__button.slider-base__button-next"));
         Thread.sleep(3500);
