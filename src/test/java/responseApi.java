@@ -8,7 +8,7 @@ public class responseApi {
 
     @BeforeEach
     public void setup() {
-        RestAssured.baseURI = "https://budu.ru"; // Установили базовую URI
+        RestAssured.baseURI = "https://preprod.shop.budu.ru"; // Установили базовую URI
     }
 
     @Test
