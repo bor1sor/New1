@@ -3,7 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
-public class BuduTimingList {
+public class buduTimingList {
 
     @BeforeEach
     public void setup() {
