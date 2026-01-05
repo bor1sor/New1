@@ -2,7 +2,7 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
-public class buduTimingInfo {
+public class buduTimingList_v2 {
 
     @Test
     public void testBuduStatus() {
