@@ -8,7 +8,7 @@ public class giftBudu {
 
     @BeforeEach
     public void setup() {
-        RestAssured.baseURI = "https://preprod.shop.budu.ru/gift"; // Установили базовую URI
+        RestAssured.baseURI = "https://preprod.shop.budu.ru/gift"; // базовый url
     }
 
     @Test
@@ -18,7 +18,7 @@ public class giftBudu {
         if (statusCode == 200) {
             System.out.println("Сайт доступен, статус-код: " + statusCode);
         } else {
-            System.out.println("Ошибка доступа к сайту, статус-код: " + statusCode);
+            System.out.println("Сайт недоступен, статус-код: " + statusCode);
         }
     }
 }
