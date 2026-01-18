@@ -1,54 +1,44 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.time.Duration;
 
 public class BuduCatalogue_2 {
 
     private final static Logger logger = LogManager.getLogger(BuduCatalogue_2.class);
-    private WebDriver driver; // Переменная перемещается сюда, теперь доступна всем методам
-
-    @BeforeAll
-    public static void driverSetup() {
-        logger.trace("Загрузка ВебДрайвера - начало");
-        WebDriverManager.chromedriver().setup();
-        logger.trace("Загрузка ВебДрайвера - конец");
-    }
+    private WebDriver driver;
 
     @BeforeEach
     public void setUp() {
-        logger.trace("Открытие браузера - начало");
-        driver = new ChromeDriver(); // Инициализируем здесь объект driver
-        logger.trace("Открытие браузера - конец");
+        logger.info("Запуск Chrome");
+        driver = new ChromeDriver();
 
-        logger.trace("Открытие сайта - начало");
+        // Настройка ожиданий и размера окна
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+
+        logger.info("Переходим на маркетплейс");
         driver.get("https://preprod.shop.budu.ru");
-        logger.trace("Открытие сайта - конец");
+    }
+
+    @Test
+    @DisplayName("Проверка заголовка главной страницы")
+    public void titleShouldBeCorrect() {
+        String expectedTitle = "budu.ru"; // Уточни title страницы
+        String actualTitle = driver.getTitle();
+
+        logger.info("Фактический заголовок: " + actualTitle);
+        Assertions.assertEquals(expectedTitle, actualTitle, "Заголовок страницы не совпадает с ожидаемым");
     }
 
     @AfterEach
     public void tearDown() {
-        logger.trace("Закрытие браузера - начало");
         if (driver != null) {
-            driver.quit(); // Закрываем браузер после каждого теста
+            driver.quit();
+            logger.info("Браузер закрыт");
         }
-        logger.trace("Закрытие браузера - конец");
-    }
-
-    @Test
-    public void firstTest() {
-        String expectedTitle = "preprod.shop.budu.ru";
-        String actualTitle = driver.getTitle(); // Теперь доступно
-        Assertions.assertEquals(expectedTitle, actualTitle, "Проверка заголовка страницы.");
-    }
-
-    @Test
-    public void secondTest() {
-        String expectedTitle = "preprod.shop.budu.ru";
-        String actualTitle = driver.getTitle(); // Доступно
-        Assertions.assertEquals(expectedTitle, actualTitle, "Проверка альтернативного заголовка страницы.");
     }
 }
