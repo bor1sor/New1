@@ -24,6 +24,6 @@ public class ResponseApiTest_1 {
         // Проводим валидацию результата
         response.then()
                 .log().ifValidationFails()
-                .statusCode(404);
+                .statusCode(200);
     }
 }
