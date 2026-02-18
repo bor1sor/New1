@@ -4,11 +4,12 @@
 ### 🛠 Мой стек инструментов
 
 **Тестирование:**  
-![Manual QA](https://img.shields.io/badge/-Manual%20QA-172B4D?style=for-the-badge)
-![Jira](https://img.shields.io/badge/-Jira-0052CC?style=for-the-badge&logo=jira)
 ![Postman](https://img.shields.io/badge/-Postman-FF6C37?style=for-the-badge&logo=postman)
 ![DevTools](https://img.shields.io/badge/-DevTools-0F9D58?style=for-the-badge&logo=googlechrome)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
+![Dbeaver](https://img.shields.io/badge/dbeaver-382923?style=for-the-badge&logo=dbeaver&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F2F4F9?style=for-the-badge&logo=grafana&logoColor=orange&labelColor=F2F4F9)
+![Elastic](https://img.shields.io/badge/Elastic_Search-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
 
 **Разработка и автоматизация (в процессе изучения):**  
 ![Java](https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java)
