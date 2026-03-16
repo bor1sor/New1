@@ -7,7 +7,7 @@ public class Greeting {
         System.out.println("Enter your name: ");
         String name = scanner.nextLine();
 
-        System.out.println("Hello, " + name + "Nice to meet you");
+        System.out.println("Привет, " + name + "Приятно познакомиться!");
 
         scanner.close();
     }

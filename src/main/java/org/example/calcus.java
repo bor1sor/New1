@@ -9,7 +9,7 @@ public class calcus {
         System.out.print("Сколько тебе полных лет? ");
         int age = scanner.nextInt();
 
-        System.out.println("Через 5 лет тебе будет " + (age + 5) + " лет!");
+        System.out.println("Через 10 лет тебе будет " + (age + 1) + " лет!");
 
         scanner.close();
     }
